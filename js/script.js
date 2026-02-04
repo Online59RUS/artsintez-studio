@@ -55,7 +55,7 @@ const hint = document.getElementById("formHint");
 const submitBtn = document.getElementById("leadSubmit");
 
 // URL твоей Yandex Cloud Function:
-const FORM_ENDPOINT = "https://functions.yandexcloud.net/d4e6lmm8o2apo4i0hh07";
+const FORM_ENDPOINT = "https://functions.yandexcloud.net/d4eb0aqkg0o6fptt7qbk";
 
 function setHint(text, ok = true) {
   if (!hint) return;
