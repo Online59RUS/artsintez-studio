@@ -148,7 +148,7 @@ const BRANCHES = [
     badge: "Основной",
     address: "ул. Академика Ландау, д.51, пом.183, Екатеринбург",
     phone: "+79221779204",
-    hours: "Пн-Пт 10:00-20:00 - Сб 11:00-18:00 - Вс выходной",
+    hours: "Пн-Вс 10:00-20:00",
     mapYandex: "https://yandex.ru/maps/-/CLxARN9A",
     map2gis: "https://go.2gis.com/Z7mpl",
   },
@@ -158,7 +158,7 @@ const BRANCHES = [
     badge: "Кировский",
     address: "ул. Репина, д.79а, Екатеринбург",
     phone: "+79221779204",
-    hours: "Пн-Пт 10:00-20:00 - Сб 11:00-18:00 - Вс выходной",
+    hours: "Чт 14:00-20:00",
     mapYandex: "https://yandex.ru/maps/-/CLxAVMyN",
     map2gis: "https://go.2gis.com/kTeV5",
   },
@@ -168,7 +168,7 @@ const BRANCHES = [
     badge: "Пионерский",
     address: "ул. Советская, д.60, Екатеринбург",
     phone: "+79221779204",
-    hours: "Пн-Пт 10:00-20:00 - Сб 11:00-18:00 - Вс выходной",
+    hours: "Вт/Пт 14:00-20:00",
     mapYandex: "https://yandex.ru/maps/-/CLxAZI4b",
     map2gis: "https://go.2gis.com/ca0A4",
   },
@@ -178,7 +178,7 @@ const BRANCHES = [
     badge: "Чкаловский",
     address: "ул. Бисертская, д.128, Екатеринбург",
     phone: "+79221779204",
-    hours: "Пн-Пт 10:00-20:00 - Сб 11:00-18:00 - Вс выходной",
+    hours: "Сб 10:00-16:00",
     mapYandex: "https://yandex.ru/maps/-/CLxAZCiO",
     map2gis: "https://go.2gis.com/AD1Pn",
   },
@@ -354,17 +354,13 @@ renderBranches();
   const onPrev = (e) => { stop(e); prev(); };
 
   closeBtn.addEventListener("click", onClose);
-  closeBtn.addEventListener("pointerdown", onClose);
-
+  
   backdrop.addEventListener("click", onClose);
-  backdrop.addEventListener("pointerdown", onClose);
 
   nextBtn.addEventListener("click", onNext);
-  nextBtn.addEventListener("pointerdown", onNext);
 
   prevBtn.addEventListener("click", onPrev);
-  prevBtn.addEventListener("pointerdown", onPrev);
-
+  
   document.addEventListener("keydown", (e) => {
     if (!lightbox.classList.contains("is-open")) return;
 
