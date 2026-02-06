@@ -1,5 +1,5 @@
 // ================================
-// script.js — FINAL, CLEAN, SAFE
+// script.js — FINAL, CLEAN, SAFE (FIXED)
 // ================================
 
 // ---------- Year ----------
@@ -49,13 +49,13 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeMenu();
 });
 
-// ===== Lead form -> Yandex Cloud Function (Telegram inside Function) =====
+// ===== Lead form -> Yandex API Gateway -> Yandex Cloud Function -> Telegram =====
 const leadForm = document.getElementById("leadForm");
 const hint = document.getElementById("formHint");
 const submitBtn = document.getElementById("leadSubmit");
 
-// URL твоей Yandex Cloud Function:
-const FORM_ENDPOINT = "https://functions.yandexcloud.net/d4eb0aqkg0o6fptt7qbk";
+// !!! ВАЖНО: твой рабочий endpoint (API Gateway) !!!
+const FORM_ENDPOINT = "https://d5dunvkrpltoq7ostgp.apigw.yandexcloud.net/lead";
 
 function setHint(text, ok = true) {
   if (!hint) return;
@@ -77,12 +77,16 @@ function normalizePhonePlain(phone) {
 async function sendLead(payload) {
   const res = await fetch(FORM_ENDPOINT, {
     method: "POST",
-    headers: { "Content-Type": "application/json", "Accept": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+    },
     body: JSON.stringify(payload),
   });
 
   // читаем как текст, чтобы увидеть и JSON и текст ошибок
   const raw = await res.text();
+
   let data = null;
   try {
     data = JSON.parse(raw);
@@ -354,13 +358,10 @@ renderBranches();
   const onPrev = (e) => { stop(e); prev(); };
 
   closeBtn.addEventListener("click", onClose);
-  
   backdrop.addEventListener("click", onClose);
-
   nextBtn.addEventListener("click", onNext);
-
   prevBtn.addEventListener("click", onPrev);
-  
+
   document.addEventListener("keydown", (e) => {
     if (!lightbox.classList.contains("is-open")) return;
 
