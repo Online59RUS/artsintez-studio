@@ -55,7 +55,7 @@ const hint = document.getElementById("formHint");
 const submitBtn = document.getElementById("leadSubmit");
 
 // !!! ВАЖНО: твой рабочий endpoint (API Gateway) !!!
-const FORM_ENDPOINT = "https://d5dunvkrpltoq7ostgp.apigw.yandexcloud.net/lead";
+const FORM_ENDPOINT = "https://d5dunvkrpltoqm7ostgp.ubofext2.apigw.yandexcloud.net/lead";
 
 function setHint(text, ok = true) {
   if (!hint) return;
