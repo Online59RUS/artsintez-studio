@@ -2,6 +2,9 @@
 // script.js — FINAL, CLEAN, SAFE (FIXED)
 // ================================
 
+// fallback телефон, если заявка не ушла
+const FALLBACK_PHONE = "+7 922 177-92-04";
+
 // ---------- Year ----------
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -136,10 +139,13 @@ if (leadForm) {
       leadForm.reset();
       setHint("Спасибо! Заявка принята. Мы свяжемся с вами.");
     } catch (err) {
-      console.error(err);
-      setHint(`Не удалось отправить: ${err?.message || "ошибка сети"}`, false);
-    } finally {
-      if (submitBtn) submitBtn.disabled = false;
+      console.error("Lead submit failed:", err);
+
+      setHint(
+        `Не удалось отправить заявку. Пожалуйста, позвоните нам по телефону ${FALLBACK_PHONE}`,
+        false
+      );
+      hint.innerHTML += ` <a href="tel:+79221779204">+7 922 177-92-04</a>`;
     }
   });
 }
