@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Продлёнка в АртСинтез - творчество, занятия и забота</title>
+  <meta name="description" content="Группа продлённого дня в АртСинтез: питание, помощь с домашкой, творческая мастерская. Екатеринбург." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Продлёнка в АртСинтез" />
+  <meta property="og:description" content="Питание, помощь с домашкой и творческая мастерская каждый день." />
+
+  <link rel="stylesheet" href="./css/styles.css" />
+
+  <!-- favicon -->
+  <link rel="icon" href="/img/favicon/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/img/favicon/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/img/favicon/favicon-16x16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/img/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="/img/favicon/site.webmanifest">
+  <meta name="theme-color" content="#6D28D9">
+</head>
+
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="./index.html#top" aria-label="АртСинтез">
+        <img class="logo__img" src="./img/logo/logo.svg" alt="АртСинтез" width="38" height="38" loading="eager">
+        <span class="logo__text">АртСинтез</span>
+      </a>
+
+      <nav class="nav" aria-label="Навигация">
+        <a class="nav__link" href="./index.html#programs">Программы</a>
+        <a class="nav__link" href="./index.html#works">Работы детей</a>
+        <a class="nav__link" href="./index.html#teachers">Преподаватели</a>
+        <a class="nav__link" href="./index.html#reviews">Отзывы</a>
+        <a class="nav__link" href="./index.html#pricing">Цены</a>
+        <a class="nav__link" href="./index.html#contacts">Контакты</a>
+      </nav>
+
+      <div class="header__actions">
+        <a class="btn btn--ghost" href="#lead">Узнать детали</a>
+        <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" type="button">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <a class="mobile-menu__link" href="./index.html#programs">Программы</a>
+      <a class="mobile-menu__link" href="./index.html#works">Работы детей</a>
+      <a class="mobile-menu__link" href="./index.html#teachers">Преподаватели</a>
+      <a class="mobile-menu__link" href="./index.html#reviews">Отзывы</a>
+      <a class="mobile-menu__link" href="./index.html#pricing">Цены</a>
+      <a class="mobile-menu__link" href="./index.html#contacts">Контакты</a>
+
+      <a class="btn btn--primary mobile-menu__cta" href="#lead">Узнать детали</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <div class="badge">Екатеринбург • до 10 детей</div>
+          <h1 class="hero__title">ГРУППА ПРОДЛЁННОГО ДНЯ</h1>
+          <p class="hero__text">
+            Для родителей, кому важно: ребёнок под присмотром, поел, сделал домашку и провёл день с пользой - в тёплой атмосфере.
+          </p>
+
+          <div class="hero__buttons">
+            <a class="btn btn--primary" href="#lead">Узнать места и расписание</a>
+            <a class="btn btn--ghost" href="./index.html">На главную</a>
+          </div>
+
+          <div class="hero__stats">
+            <div class="stat">
+              <div class="stat__num">2</div>
+              <div class="stat__label">приёма пищи</div>
+            </div>
+            <div class="stat">
+              <div class="stat__num">1</div>
+              <div class="stat__label">домашка с педагогом</div>
+            </div>
+            <div class="stat">
+              <div class="stat__num">1+</div>
+              <div class="stat__label">творческая практика</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__visual">
+          <div class="card">
+            <div class="card__top">
+              <div class="chip chip--dark">Стабильный формат</div>
+            </div>
+
+            <div class="card__title">Что получает ребёнок</div>
+
+            <ul class="mini-project">
+              <li>- Спокойный режим и безопасность</li>
+              <li>- Питание (обед + полдник)</li>
+              <li>- Домашка под присмотром</li>
+              <li>- Творческая мастерская каждый день</li>
+              <li>- Прогулка или активные игры</li>
+            </ul>
+
+            <div class="card__hint">
+              Оставьте контакт - расскажем условия и наличие мест
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="schedule">
+      <div class="container">
+        <h2 class="section__title">Распорядок дня</h2>
+        <p class="section__subtitle">
+          Примерный тайминг - подстраиваем под группу и задачи.
+        </p>
+
+        <article class="price-card price-card--wide">
+          <div class="price-card__top">
+            <h3 class="price-card__title">День в продлёнке</h3>
+            <div class="price">
+              <span class="price__old">23 000 ₽</span>
+              <div class="sale-badge">АКЦИЯ</div>
+              <span class="price__now">16 000 ₽</span>
+            </div>
+          </div>
+
+          <div class="tag">до 10 детей • питание включено • помощь с домашкой</div>
+
+          <details class="details" open>
+            <summary>Показать распорядок</summary>
+            <div class="details__content">
+              <ul class="schedule" style="margin:0;padding-left:18px;">
+                <li><span>11:00-12:30</span> Встреча детей, подготовка</li>
+                <li><span>12:30-13:00</span> Обед (горячее питание)</li>
+                <li><span>13:00-14:00</span> Свободное время, игры</li>
+                <li><span>14:00-15:00</span> Домашние задания с педагогом</li>
+                <li><span>15:00-16:00</span> Полдник</li>
+                <li><span>16:00-17:00</span> Творческая мастерская</li>
+                <li><span>17:00-18:00</span> Прогулка / активные игры</li>
+              </ul>
+            </div>
+          </details>
+
+          <div class="price-actions">
+            <a class="btn btn--primary btn--full" href="#lead">Узнать детали</a>
+          </div>
+        </article>
+        <div class="details-nav">
+          <a class="details-nav__link" href="price.html">Вернуться в прайс</a>
+        </div>
+
+    <section class="section section--alt" id="lead">
+      <div class="container lead">
+        <div class="lead__left">
+          <h2 class="section__title">Запрос по продлёнке</h2>
+          <p class="section__subtitle">
+            Оставьте контакт - уточним возраст, дни, расписание и наличие мест.
+          </p>
+
+          <ul class="bullets">
+            <li>ответим быстро</li>
+            <li>скажем условия и график</li>
+            <li>подскажем, подходит ли формат</li>
+          </ul>
+        </div>
+
+        <form class="form" id="leadForm">
+          <label class="field">
+            <span class="field__label">Имя</span>
+            <input class="field__input" type="text" name="name" placeholder="Как к вам обращаться" required />
+          </label>
+
+          <label class="field">
+            <span class="field__label">Телефон</span>
+            <input class="field__input" type="tel" name="phone" placeholder="+7 ___ ___-__-__" required />
+          </label>
+
+          <label class="field">
+            <span class="field__label">Комментарий</span>
+            <input class="field__input" type="text" name="age" placeholder="Возраст, удобные дни, вопросы" />
+          </label>
+
+          <button class="btn btn--primary btn--full" id="leadSubmit" type="submit">Отправить запрос</button>
+          <p class="form__hint" id="formHint">
+            Если не отправилось - позвоните: <a href="tel:+79221779204">+7 (922) 177-92-04</a>
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" id="contacts">
+      <div class="container">
+        <h2 class="section__title">Контакты</h2>
+        <p class="section__subtitle">Мы на связи - поможем разобраться.</p>
+
+        <div class="contact-cards">
+          <div class="contact">
+            <div class="contact__title">Телефон</div>
+            <a class="contact__link" href="tel:+79221779204">+7 (922) 177-92-04</a>
+          </div>
+          <div class="contact">
+            <div class="contact__title">Соцсети</div>
+            <a class="contact__link" href="https://vk.ru/artsintez_ekb" target="_blank" rel="noopener">Группа в ВК</a>
+          </div>
+          <div class="contact">
+            <div class="contact__title">Вернуться на сайт</div>
+            <a class="contact__link" href="./index.html">Открыть главную</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="muted">© <span id="year"></span> АртСинтез</div>
+    </div>
+  </footer>
+
+  <script src="./js/script.js" defer></script>
+</body>
+</html>

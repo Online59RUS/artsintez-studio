@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>АртСинтез - Прайс</title>
+  <meta name="description" content="Полный прайс АртСинтез: занятия, абонементы, мастер-классы, продлёнка, дни рождения." />
+  <link rel="stylesheet" href="./css/styles.css" />
+
+  <link rel="icon" href="/img/favicon/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/img/favicon/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/img/favicon/favicon-16x16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/img/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="/img/favicon/site.webmanifest">
+  <meta name="theme-color" content="#6D28D9">
+</head>
+
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="index.html#top" aria-label="АртСинтез">
+        <img class="logo__img" src="./img/logo/logo.svg" alt="АртСинтез" />
+      </a>
+
+      <nav class="nav" aria-label="Навигация">
+        <a class="nav__link" href="index.html#programs">Программы</a>
+        <a class="nav__link" href="index.html#works">Работы детей</a>
+        <a class="nav__link" href="index.html#teachers">Преподаватели</a>
+        <a class="nav__link" href="index.html#lead">Записаться</a>
+      </nav>
+
+      <div class="header__actions">
+        <a class="btn btn--primary" href="index.html#lead">Оставить заявку</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="pricing-all">
+      <div class="container">
+        <h1 class="section__title">Полный прайс</h1>
+        <p class="section__subtitle">
+          Все форматы студии АртСинтез - от пробного занятия до продлёнки и выездных программ.
+        </p>
+
+        <div class="price-grid" id="pricingAllGrid"></div>
+
+        <h2 class="section__title" style="margin-top:18px;">Большие программы</h2>
+        <p class="section__subtitle">
+          Продлёнка и дни рождения - отдельные страницы с деталями и примерами.
+        </p>
+        <div class="price-grid price-grid--two" id="pricingSpecialGrid"></div>
+
+        <div class="works-cta" style="margin-top:14px;">
+          <a class="btn btn--ghost" href="index.html#lead">Записаться / задать вопрос</a>
+          <a class="btn btn--ghost" href="index.html#pricing">Назад на главную</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="muted">© <span id="year"></span> АртСинтез</div>
+    </div>
+  </footer>
+
+  <script src="./js/pricing-data.js"></script>
+  <script src="./js/pricing-render.js"></script>
+  <script src="./js/script.js" defer></script>
+</body>
+</html>
