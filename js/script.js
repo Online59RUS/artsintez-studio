@@ -59,7 +59,7 @@ const submitBtn = document.getElementById("leadSubmit");
 
 // !!! ВАЖНО: твой рабочий endpoint (API Gateway) !!!
 const FORM_ENDPOINT =
-  "https://d5dunvkrpltoqm7ostgp.ubofext2.apigw.yandexcloud.net";
+  "https://d5dunvkrpltoqm7ostgp.ubofext2.apigw.yandexcloud.net/lead";
 
 function setHint(text, ok = true) {
   if (!hint) return;
@@ -112,7 +112,7 @@ async function sendLead(payload) {
 
 if (leadForm) {
   leadForm.addEventListener("submit", async (e) => {
-    e.preventDefault(); // важно: иначе форма может “прыгать”
+    e.preventDefault();
 
     const fd = new FormData(leadForm);
     const name = String(fd.get("name") || "").trim();
@@ -124,7 +124,6 @@ if (leadForm) {
       return;
     }
 
-    // Отправляем только нужное
     const payload = {
       name: escapeHtml(name),
       phone: escapeHtml(phone),
@@ -142,16 +141,16 @@ if (leadForm) {
     } catch (err) {
       console.error("Lead submit failed:", err);
 
-      setHint(
-        `Не удалось отправить заявку. Пожалуйста, позвоните нам по телефону ${FALLBACK_PHONE}`,
-        false,
-      );
-
       if (hint) {
+        hint.innerHTML =
+          "Не удалось отправить заявку. Пожалуйста, позвоните нам по телефону ";
+
         const link = document.createElement("a");
         link.href = "tel:+79221779204";
-        link.textContent = "+7 922 177-92-04";
-        hint.append(" ", link);
+        link.textContent = FALLBACK_PHONE;
+
+        hint.appendChild(link);
+        hint.style.color = "#b91c1c";
       }
     } finally {
       if (submitBtn) submitBtn.disabled = false;
