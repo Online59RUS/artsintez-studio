@@ -58,7 +58,8 @@ const hint = document.getElementById("formHint");
 const submitBtn = document.getElementById("leadSubmit");
 
 // !!! ВАЖНО: твой рабочий endpoint (API Gateway) !!!
-const FORM_ENDPOINT = "https://d5dunvkrpltoqm7ostgp.ubofext2.apigw.yandexcloud.net/lead";
+const FORM_ENDPOINT =
+  "https://d5dunvkrpltoqm7ostgp.ubofext2.apigw.yandexcloud.net";
 
 function setHint(text, ok = true) {
   if (!hint) return;
@@ -82,7 +83,7 @@ async function sendLead(payload) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Accept": "application/json",
+      Accept: "application/json",
     },
     body: JSON.stringify(payload),
   });
@@ -143,9 +144,17 @@ if (leadForm) {
 
       setHint(
         `Не удалось отправить заявку. Пожалуйста, позвоните нам по телефону ${FALLBACK_PHONE}`,
-        false
+        false,
       );
-      hint.innerHTML += ` <a href="tel:+79221779204">+7 922 177-92-04</a>`;
+
+      if (hint) {
+        const link = document.createElement("a");
+        link.href = "tel:+79221779204";
+        link.textContent = "+7 922 177-92-04";
+        hint.append(" ", link);
+      }
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
     }
   });
 }
@@ -212,7 +221,7 @@ function renderBranches() {
         <div class="branch-tab__title">${b.name}</div>
         <div class="branch-tab__meta">${b.address}</div>
       </button>
-    `
+    `,
     ).join("");
 
     const b = BRANCHES.find((x) => x.id === activeId) || BRANCHES[0];
@@ -359,9 +368,18 @@ renderBranches();
     e.stopPropagation();
   };
 
-  const onClose = (e) => { stop(e); close(); };
-  const onNext = (e) => { stop(e); next(); };
-  const onPrev = (e) => { stop(e); prev(); };
+  const onClose = (e) => {
+    stop(e);
+    close();
+  };
+  const onNext = (e) => {
+    stop(e);
+    next();
+  };
+  const onPrev = (e) => {
+    stop(e);
+    prev();
+  };
 
   closeBtn.addEventListener("click", onClose);
   backdrop.addEventListener("click", onClose);
@@ -376,24 +394,33 @@ renderBranches();
     if (e.key === "ArrowLeft") prev();
   });
 
-  let sx = 0, sy = 0;
+  let sx = 0,
+    sy = 0;
 
-  imgEl.addEventListener("touchstart", (e) => {
-    const t = e.changedTouches[0];
-    sx = t.clientX;
-    sy = t.clientY;
-  }, { passive: true });
+  imgEl.addEventListener(
+    "touchstart",
+    (e) => {
+      const t = e.changedTouches[0];
+      sx = t.clientX;
+      sy = t.clientY;
+    },
+    { passive: true },
+  );
 
-  imgEl.addEventListener("touchend", (e) => {
-    const t = e.changedTouches[0];
-    const dx = t.clientX - sx;
-    const dy = t.clientY - sy;
+  imgEl.addEventListener(
+    "touchend",
+    (e) => {
+      const t = e.changedTouches[0];
+      const dx = t.clientX - sx;
+      const dy = t.clientY - sy;
 
-    if (Math.abs(dy) > Math.abs(dx)) return;
+      if (Math.abs(dy) > Math.abs(dx)) return;
 
-    if (dx < -40) next();
-    if (dx > 40) prev();
-  }, { passive: true });
+      if (dx < -40) next();
+      if (dx > 40) prev();
+    },
+    { passive: true },
+  );
 
   window.addEventListener("load", collect);
 })();
