@@ -6,11 +6,10 @@ function escapeHtml(s) {
     .replaceAll(">", "&gt;");
 }
 
-
 const SPECIAL_IDS = new Set(["extended-day", "birthday"]);
 
 function pickItems(mode, rootId) {
-  const all = (window.PRICING || []);
+  const all = window.PRICING || [];
 
   // Главная: показываем только showOnHome
   if (mode === "home") return all.filter((x) => x.showOnHome);
@@ -31,24 +30,31 @@ function renderPricing(containerId, mode = "home") {
   const root = document.getElementById(containerId);
   if (!root) return;
 
-    const items = pickItems(mode, containerId);
-
+  const items = pickItems(mode, containerId);
 
   const cardHtml = (x) => {
     const classes = [
       "price-card",
       x.featured ? "price-card--accent" : "",
-      x.wide ? "price-card--wide" : ""
-    ].filter(Boolean).join(" ");
+      x.wide ? "price-card--wide" : "",
+    ]
+      .filter(Boolean)
+      .join(" ");
 
     const badge = x.badge
       ? `<div class="sale-badge ${x.badge === "Бесплатно" ? "sale-badge--free" : ""}">${escapeHtml(x.badge)}</div>`
       : "";
 
-    const oldPrice = x.priceOld ? `<span class="price__old">${escapeHtml(x.priceOld)}</span>` : "";
-    const nowPrice = x.priceNow ? `<span class="price__now">${escapeHtml(x.priceNow)}</span>` : "";
+    const oldPrice = x.priceOld
+      ? `<span class="price__old">${escapeHtml(x.priceOld)}</span>`
+      : "";
+    const nowPrice = x.priceNow
+      ? `<span class="price__now">${escapeHtml(x.priceNow)}</span>`
+      : "";
 
-    const bullets = (x.bullets || []).map((b) => `<li>${escapeHtml(b)}</li>`).join("");
+    const bullets = (x.bullets || [])
+      .map((b) => `<li>${escapeHtml(b)}</li>`)
+      .join("");
 
     const detailsBody = x.detailsHtml
       ? x.detailsHtml
@@ -75,15 +81,23 @@ function renderPricing(containerId, mode = "home") {
         </details>
 
         <div class="price-actions">
-          <a class="btn ${x.featured ? "btn--primary" : "btn--ghost"} btn--full" href="${escapeHtml(x.ctaHref || "index.html#lead")}">
+          <a 
+            class="btn ${x.featured ? "btn--primary" : "btn--ghost"} btn--full"
+            href="${escapeHtml(x.ctaHref || "index.html#lead")}"
+            ${x.external ? 'target="_blank" rel="noopener"' : ""}
+            >           
             ${escapeHtml(x.ctaText || "Записаться")}
           </a>
 
-          ${x.link ? `
+          ${
+            x.link
+              ? `
             <a class="btn btn--ghost btn--full" href="${escapeHtml(x.link)}">
               ${escapeHtml(x.linkText || "Подробнее")}
             </a>
-          ` : ""}
+          `
+              : ""
+          }
         </div>
 
       </article>
@@ -95,7 +109,10 @@ function renderPricing(containerId, mode = "home") {
 
 // Автозапуск для страниц
 document.addEventListener("DOMContentLoaded", () => {
-  if (document.getElementById("pricingHomeGrid")) renderPricing("pricingHomeGrid", "home");
-  if (document.getElementById("pricingAllGrid")) renderPricing("pricingAllGrid", "all");
-  if (document.getElementById("pricingSpecialGrid")) renderPricing("pricingSpecialGrid", "all");
+  if (document.getElementById("pricingHomeGrid"))
+    renderPricing("pricingHomeGrid", "home");
+  if (document.getElementById("pricingAllGrid"))
+    renderPricing("pricingAllGrid", "all");
+  if (document.getElementById("pricingSpecialGrid"))
+    renderPricing("pricingSpecialGrid", "all");
 });
